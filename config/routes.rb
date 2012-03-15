@@ -1,5 +1,9 @@
 Bigblue::Application.routes.draw do
-  
+  scope "api" do
+    resources :purchaseorders, :items, :shippers
+  end
+
+  match 'inventory' => 'inventory#home'
 
   root :to => "home#index"
 

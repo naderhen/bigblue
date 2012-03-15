@@ -17,6 +17,10 @@ gem "cucumber-rails", ">= 1.2.1", :group => :test
 gem "capybara", ">= 1.1.2", :group => :test
 gem "launchy", ">= 2.0.5", :group => :test
 gem "guard", ">= 0.6.2", :group => :development
+gem "faker"
+gem "backbone-on-rails"
+gem "rabl"
+gem "pry"
   
 case HOST_OS
   when /darwin/i
@@ -39,3 +43,6 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.4.3"
 gem "devise", ">= 2.0.0"
 gem "rails-footnotes", ">= 3.7", :group => :development
+
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
