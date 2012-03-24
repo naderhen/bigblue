@@ -7,8 +7,21 @@
 		<div class="span3">
 			<label>PO #</label>
 			<input id="po_number" type="text" value="">
+			<label>Amicus Code</label>
+			<input id="amicus_code" type="text" value="">
 		    <label>Date</label>
 		    <input id="po_date" type="text" value="">
+		    <label>Shipper</label>
+		    <select id="shipper_id">
+				<% for shipper in @shippers_collection.models: %>
+		    		<option value="<%= shipper.get('id') %>"><%= shipper.get('name') %></option>
+		    	<% end %>
+		    </select>
+		    <label>Origin</label>
+		    <input id="origin" type="text" value="">
+		</div>
+		<div class="span3">
+			
 		</div>
 	</div>
 	<div class="modal-footer">

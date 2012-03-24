@@ -1,4 +1,4 @@
-class Warehouse
+class Airport
   include Mongoid::Document
   field :short_name, :type => String
 

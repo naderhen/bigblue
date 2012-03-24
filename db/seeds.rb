@@ -11,6 +11,16 @@ puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :name => 'Nader Hendawi', :email => 'naderhen@gmail.com', :password => 'krock923', :password_confirmation => 'krock923'
 puts 'New user created: ' << user.name
 
+["MIT", "PAN", "NOR", "TDW", "BFT", "ACA", "CUS", "ARA", "FDA", "LAW", "NFFM", "PEN", "PRY", "SEA", "FTW"].each do |warehouse|
+	Warehouse.create! short_name: warehouse
+	puts warehouse + ' warehouse created!'
+end
+
+["JFK", "EWR", "ATL", "IAD", "MIA", "LAX"].each do |airport|
+	Airport.create! short_name: airport
+	puts airport + ' airport created!'
+end
+
 10.times do
 	shipper = Shipper.create! name: Faker::Name.name, email: Faker::Internet.email, phone: Faker::PhoneNumber.phone_number
 	puts 'New Shipper Created: ' << shipper.name
@@ -19,7 +29,9 @@ end
 (2400..2450).each_with_index do |num, index|
 	shipper = Shipper.all.shuffle[0]
 	date = Date.today - (30 - index)
-	po = shipper.purchaseorders.create! po_number: num, po_date: date
+	warehouse = Warehouse.all.shuffle[0]
+	airport = Airport.all.shuffle[0]
+	po = shipper.purchaseorders.create! po_number: num, po_date: date, warehouse_id: warehouse.id, airport_id: airport.id
 
 	box_nums = (100...200).to_a
 	item_nums = (1...6).to_a
@@ -34,5 +46,5 @@ end
 		end 
 	end
 
-	puts "New PO Created: #{po.po_number} #{po.po_date} -- #{shipper.name}"
+	puts "New PO Created: #{po.po_number} #{po.po_date} -- #{shipper.name} -- Warehouse: #{po.warehouse_id} -- Airport: #{po.airport_id}"
 end

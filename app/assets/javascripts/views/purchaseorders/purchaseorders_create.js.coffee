@@ -7,12 +7,12 @@ class Bigblue.Views.PurchaseordersCreate extends Backbone.View
 
 	render: ->
 		me = @
-		$(me.el).html(me.template(model: me.model))
+		self = this
+
+		$(me.el).html(me.template(model: me.model, shippers_collection: shippers))
 		$(me.el).modal()
 		Backbone.ModelBinding.bind(me)
-
 		this
-		
 	
 	save: ->
 		console.log @model

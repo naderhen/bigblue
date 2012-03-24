@@ -10,9 +10,12 @@ class Purchaseorder
   field :airline, :type => String
   field :customs_broker, :type => String
   field :date_of_arrival, :type => Date
+  field :warehouse_id, :type => Integer
+  field :airport, :type=> Integer
 
   belongs_to :shipper
   belongs_to :warehouse
+  belongs_to :airport
   has_many :items
   has_many :notes
 
@@ -22,9 +25,9 @@ class Purchaseorder
 
   def locale
     if self.warehouse
-      self.warehouse.name
+      return self.warehouse.short_name
     else
-      'TBD'
+      return 'TBD'
     end
   end
 

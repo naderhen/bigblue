@@ -24,4 +24,22 @@ class Item
   def po_number
     self.purchaseorder.po_number
   end
+
+  def sizes
+  	case self.species.to_lower
+  	when "yf"
+  		return ["30/40", "40/60", "60+"]
+  	when "sword"
+  		return ["Under 50", "50/69", "70/99", "100+"]
+  	when "snapper"
+  		return ["1-2", "2-4", "4-6", "OTHER"]
+  	when "grouper"
+  		return ["1-2", "2-4", "4-6", "OTHER"]
+  	when "WAHOO"
+  		return ["5-", "10-", "15+", "20+", "OTHER"]
+  	when "MAHI"
+  		return ["5-10", "10+", "15+", "20+", "OTHER"]
+  	end	
+  end
+
 end
