@@ -14,6 +14,7 @@ class Purchaseorder
   belongs_to :shipper
   belongs_to :warehouse
   has_many :items
+  has_many :notes
 
   def shipper_name
     self.shipper.name

@@ -17,12 +17,24 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 		$(@el).html(@template(purchaseorder: purchaseorder, batch_collection: @batch_collection))
 		@collection.each(@appendItem)
 		items_table = @$('table').dataTable( {
-			"sDom": "<'row'<'span10'l><'span10'f>r>t<'row'<'span5'i><'span10'p>>",
+			"sDom": 'W<"clear">lfrtip',
 			"sPaginationType": "bootstrap",
 			"oLanguage": {
 				"sLengthMenu": "_MENU_ records per page"
 			}
 		});
+
+		@$('.filter-widget').on 'blur', ->
+			col_index = $(this).attr('data-column')
+
+			items_table.fnFilter("^(0{0,2}[0-9]|0?[1-9][0-9]|1[0-7][0-9]|180)$", 4, true)
+
+			if	$(this).val().length > 0
+				filter_value = "^" + $(this).val() + "$"
+				items_table.fnFilter(filter_value, col_index, true)
+			else
+				items_table.fnFilter('', col_index)
+			
 		this
 
 	appendItem: (item) =>
@@ -40,7 +52,5 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 
 	clearBatch: (event) ->
 		@batch_collection.reset()
-		console.log(@batch_collection)
-		console.log(@$('.selected'))
 		@$('.selected').removeClass('icon-darkblue selected').addClass('unselected')
 		event.preventDefault()

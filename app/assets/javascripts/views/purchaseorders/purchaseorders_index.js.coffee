@@ -20,6 +20,7 @@ class Bigblue.Views.PurchaseordersIndex extends Backbone.View
 				"sLengthMenu": "_MENU_ records per page"
 			}
 		});
+
 		this
 
 	appendPurchaseorder: (purchaseorder) =>
@@ -27,6 +28,7 @@ class Bigblue.Views.PurchaseordersIndex extends Backbone.View
 		@$('table tbody').append(view.render().el)
 
 	createPurchaseorder: (event) ->
-		create_view = new Bigblue.Views.PurchaseordersCreate(collection: @collection)
+		@purchaseorder = new Bigblue.Models.Purchaseorder
+		create_view = new Bigblue.Views.PurchaseordersCreate(collection: @collection, model: @purchaseorder)
 		create_view.render()
 		event.preventDefault()

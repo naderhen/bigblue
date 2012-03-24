@@ -2,7 +2,17 @@ class Bigblue.Views.PurchaseordersCreate extends Backbone.View
 
 	template: JST['purchaseorders/create']
 
+	events:
+		'click .save': 'save'
+
 	render: ->
-		$(@el).html(@template())
-		$(@el).modal()
+		me = @
+		$(me.el).html(me.template(model: me.model))
+		$(me.el).modal()
+		Backbone.ModelBinding.bind(me)
+
 		this
+		
+	
+	save: ->
+		console.log @model

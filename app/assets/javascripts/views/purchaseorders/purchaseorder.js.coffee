@@ -5,7 +5,7 @@ class Bigblue.Views.Purchaseorder extends Backbone.View
 	events: 
 		'click .icon-list': 'addItems'
 		'click .icon-ok': 'removeItems'
-		'click .edit_purchaseorder': 'editPurchaseorder'
+		'click .edit-purchaseorder': 'editPurchaseorder'
 
 	initialize: ->
 		@model.on('change', @render, this)
@@ -19,7 +19,7 @@ class Bigblue.Views.Purchaseorder extends Backbone.View
 		object = $(event.currentTarget)
 
 		po = new Bigblue.Models.Purchaseorder(@model)
-		$('#center').fadeOut()
+		$('#center, #right').fadeOut()
 		object.removeClass('icon-list').addClass('icon-refresh')
 		po.fetch({
 			success: ->

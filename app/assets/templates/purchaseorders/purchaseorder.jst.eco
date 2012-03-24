@@ -1,4 +1,7 @@
-<td><i class="icon-list"></i></td>
+<td>
+	<i class="icon-list"></i>
+	<i class="icon-edit edit-purchaseorder"></i>
+</td>
 <td class="edit_purchaseorder"><%= @purchaseorder.get('po_number') %></td>
 <td><%= @purchaseorder.get('po_date') %></td>
 <td><%= @purchaseorder.get('shipper_name') %></td>

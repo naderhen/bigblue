@@ -1,6 +1,43 @@
 <div class="well">
 	<h4>Functions: <%= @item.get('po_number') %>-<%= @item.get('box_number') %>-<%= @item.get('item_number') %></h4>
 </div>
+
+<div class="well">
+	<h3>Regrading</h3>
+</div>
+
+<div class="well">
+	<form id="regrading-form" class="form-vertical">
+		<div class="row">
+			<div class="span2">
+				<label for="core_grade">Core</label>
+				<select id="core_grade" class="span2">
+					<option>A+</option>
+				</select>
+				<label for="freshness_grade">Freshness</label>
+				<select id="freshness_grade" name="freshness_grade" class="span2">
+					<option>B+</option>
+				</select>
+			</div>
+			<div class="span2">
+				<label for="tail_grade">Tail</label>
+				<select id="tail_grade" class="span2">
+					<option>B</option>
+				</select>
+				<label for="texture_grade">Texture</label>
+				<select id="texture_grade" class="span2">
+					<option>B+</option>
+				</select>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<div class="well">
+	<h3>Product Info</h3>
+</div>
+
 <div class="well">
 	<form id="item-form" class="form-horizontal">
 		<div class="row">
@@ -28,7 +65,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<button type="submit">Submit</button>
+			<h2>Purchase Order Info</h2>
+			<div class="span2">
+				<dl class="dl-horizontal">
+			        <dt>DOA:</dt>
+			        <dd>3/22/2012</dd>
+			        <dt>Origin:</dt>
+			        <dd>Brazil</dd>
+			        <dt>Code:</dt>
+			        <dd>MIA-4686-2403</dd>
+			        <dt>Shipper:</dt>
+			        <dd>******* *****</dd>
+		      	</dl>
+			</div>
 		</div>
 	</form>
 </div>

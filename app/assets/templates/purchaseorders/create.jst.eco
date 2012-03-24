@@ -4,10 +4,15 @@
 		<h3>Create a PO</h3>
 	</div>
 	<div class="modal-body">
-		<p>Modal Content</p>
+		<div class="span3">
+			<label>PO #</label>
+			<input id="po_number" type="text" value="">
+		    <label>Date</label>
+		    <input id="po_date" type="text" value="">
+		</div>
 	</div>
 	<div class="modal-footer">
-		<a href="#" class="btn btn-primary">Save changes</a>
+		<a href="#" class="save btn btn-primary">Save changes</a>
 	    <a href="#" class="btn" data-dismiss="modal">Close</a>
 	</div>
 </div>
