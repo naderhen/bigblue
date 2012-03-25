@@ -2,20 +2,20 @@
 	<h4>Inventory for <%= @purchaseorder.get('po_number') %></h4>
 </div>
 <div class="row">
-	<div class="span4">
+	<div class="well span3">
 		<form id="items-filters" class="form-horizontal">
 			<label>PO #</label>
-			<input class="filter-widget" type="text" data-column="1">
+			<input class="filter-widget span2" type="text" data-column="1">
 			<label>Box #</label>
-			<input class="filter-widget" type="text" data-column="2">
+			<input class="filter-widget span2" type="text" data-column="2">
 			<label>Item #</label>
-			<input class="filter-widget" type="text" data-column="3">
+			<input class="filter-widget span2" type="text" data-column="3">
 			<label>Weight</label>
-			<input class="filter-widget" type="text" data-column="4">
+			<input class="filter-widget span2" type="text" data-column="4">
 			<label>Species</label>
-			<input class="filter-widget" type="text" data-column="5">
+			<input class="filter-widget span2" type="text" data-column="5">
 			<label>Grade</label>
-			<input class="filter-widget" type="text" data-column="6">
+			<input class="filter-widget span2" type="text" data-column="6">
 		</form>
 	</div>
 	<div class="span8">

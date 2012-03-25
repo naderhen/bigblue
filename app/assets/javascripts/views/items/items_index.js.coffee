@@ -21,7 +21,8 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 			"sPaginationType": "bootstrap",
 			"oLanguage": {
 				"sLengthMenu": "_MENU_ records per page"
-			}
+			},
+			"iDisplayLength": 35
 		});
 
 		@$('.filter-widget').on 'blur', ->

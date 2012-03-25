@@ -6,6 +6,10 @@ class PurchaseordersController < ApplicationController
 		respond_with @purchaseorders
 	end
 
+	def create
+		respond_with Purchaseorder.create(params[:purchaseorder])
+	end
+
 	def update
 		@purchaseorder = Purchaseorder.find(params[:id])
 		respond_with @purchaseorder.update_attributes!(params)

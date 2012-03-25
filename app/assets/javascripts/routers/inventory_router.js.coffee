@@ -8,6 +8,7 @@ class Bigblue.Routers.Inventory extends Backbone.Router
 		@purchaseorders.fetch()
 		@items_collection = new Bigblue.Collections.Items()
 		@items_view = new Bigblue.Views.Item()
+		console.log(warehouses, shippers)
 
 	index: ->
 		purchase_orders_view = new Bigblue.Views.PurchaseordersIndex({collection: @purchaseorders, items_collection: @items_collection, items_view: @items_view})

@@ -8,3 +8,7 @@ end
 child :notes do
 	attributes :id, :content, :user_id
 end
+
+child :shipper do
+	attributes :id, :name
+end

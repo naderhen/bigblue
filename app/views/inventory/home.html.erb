@@ -1,6 +1,8 @@
 <script>
 	var shippers = new Bigblue.Collections.Shippers;
 	shippers.reset(<%= @shippers.to_json.html_safe %>);
+	var warehouses = new Bigblue.Collections.Warehouses;
+	warehouses.reset(<%= @warehouses.to_json.html_safe %>);
 </script>
 
 <div class="page-header">
