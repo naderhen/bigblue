@@ -1,0 +1,7 @@
+<div class="span6">
+	<form id="upload-attachment-form">
+		<input type="text" name="purchaseorder_id" value="<%= @model.get('_id') %>">
+		<input class="input-file" id="main_file" name="main_file" type="file">
+		<button type="submit">Submit</button>
+	</form>
+</div>

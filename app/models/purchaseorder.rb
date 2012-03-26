@@ -18,6 +18,7 @@ class Purchaseorder
   belongs_to :airport
   has_many :items
   has_many :notes
+  has_many :attachments
 
   def shipper_name
     self.shipper.name

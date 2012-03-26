@@ -2,7 +2,7 @@ class PurchaseordersController < ApplicationController
 	respond_to :json
 
 	def index
-		@purchaseorders = Purchaseorder.all
+		@purchaseorders = Purchaseorder.desc(:po_number)
 		respond_with @purchaseorders
 	end
 

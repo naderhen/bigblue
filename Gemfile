@@ -8,8 +8,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem 'carrierwave'
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.11'
+gem 'fog'
 gem "rspec-rails", ">= 2.8.1", :group => [:development, :test]
 gem "database_cleaner", ">= 0.7.1", :group => :test
 gem "mongoid-rspec", ">= 1.4.4", :group => :test

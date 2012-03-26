@@ -6,6 +6,7 @@ class Bigblue.Views.PurchaseordersCreate extends Backbone.View
 		'click .save': 'save'
 
 	initialize: ->
+		@model.on('sync', @showUploadForm, this)
 
 	render: ->
 		me = @
@@ -13,15 +14,22 @@ class Bigblue.Views.PurchaseordersCreate extends Backbone.View
 
 		$(me.el).html(me.template(model: me.model, shippers_collection: shippers))
 		$(me.el).modal()
-		$('.datepicker').datepicker()
+		$('.datepicker').datepicker({
+			dateFormat: 'yy-mm-dd'
+		})
 		Backbone.ModelBinding.bind(me)
 		Backbone.Validation.bind this,
 			valid: (view, attr) ->
-				console.log('valid!', view, attr)
+				
 			invalid: (view, attr, error) ->
-				console.log('invalid!', view, attr, error)
+				
+
 		this
 	
 	save: ->
 		if @model.isValid()
-			console.log @model
+			@model.save()
+
+	showUploadForm: ->
+		upload_view = new Bigblue.Views.PurchaseorderUpload(model: @model)
+		@$('#upload-container').hide().html(upload_view.render().el).slideDown('slow')

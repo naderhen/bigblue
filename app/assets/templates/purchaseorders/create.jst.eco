@@ -28,6 +28,7 @@
 				<% end %>
 			</select>
 		</div>
+		<div id="upload-container" class="span6"></div>
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="save btn btn-primary">Save changes</a>
