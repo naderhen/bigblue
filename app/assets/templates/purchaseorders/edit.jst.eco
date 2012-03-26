@@ -10,7 +10,7 @@
 			<label>Shipper</label>
 			<select id="shipper_id">
 				<% for shipper in @shippers_collection.models: %>
-		    		<option value="<%= shipper.get('id') %>"><%= shipper.get('name') %></option>
+		    		<option value="<%= shipper.get('_id') %>" selected="<%= shipper.get('_id') == @model.get('shipper_id') ? 'selected' : 'unselected' %>"><%= shipper.get('name') %></option>
 		    	<% end %>
 		    </select>
 		    <label>Date</label>

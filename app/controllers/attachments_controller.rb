@@ -1,3 +1,4 @@
+require 'csv'
 class AttachmentsController < ApplicationController
 
 	def index
@@ -8,9 +9,17 @@ class AttachmentsController < ApplicationController
 		@attachment = Attachment.new
 		@attachment.purchaseorder_id = params[:purchaseorder_id]
 		@attachment.main_file = params[:main_file]
+
 		if @attachment.save
 			if params["X-Requested-With"] == "IFrame"
-				render :json => @attachment
+				if @attachment.main_file.format == :csv
+					@file = File.read(params[:main_file].tempfile)
+					@csv = CSV.parse(@file)
+					render :json => {:attachment => @attachment, :csv => @csv}
+				else
+					render :json => @attachment
+				end
+				
 			else
 				respond_to do |format|
 					format.html {

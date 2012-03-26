@@ -4,6 +4,7 @@ class Bigblue.Views.PurchaseorderUpload extends Backbone.View
 
 	render: ->
 		$(@el).html(@template(model: @model))
+
 		@$("#upload-attachment-form").submit ->
 			$.ajax('/api/attachments',
 				files: $(":file", this)
@@ -13,7 +14,7 @@ class Bigblue.Views.PurchaseorderUpload extends Backbone.View
 				processData: false
 				dataType: "json"
 				success: (data) ->
-					console.log(data)
+					
 				)
 			return false
 		this
