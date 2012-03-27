@@ -6,6 +6,7 @@ Bigblue::Application.routes.draw do
   match 'inventory' => 'inventory#home'
 
   match 'upload' => 'attachments#new'
+  match 'profile' => 'users#profile'
 
   root :to => "home#index"
 

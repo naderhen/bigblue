@@ -5,10 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'Nader Hendawi', :email => 'naderhen@gmail.com', :password => 'krock923', :password_confirmation => 'krock923'
+user = User.create! :name => 'Nader Hendawi', :email => 'naderhen@gmail.com', :password => 'krock923', :password_confirmation => 'krock923', :role => "Admin"
+puts 'New user created: ' << user.name
+
+user = User.create! :name => 'Warehouse Grader', :email => 'warehouse@bigblue.com', :password => 'bigblue', :password_confirmation => 'bigblue', :role => "Warehouse Grader"
 puts 'New user created: ' << user.name
 
 ["MIT", "PAN", "NOR", "TDW", "BFT", "ACA", "CUS", "ARA", "FDA", "LAW", "NFFM", "PEN", "PRY", "SEA", "FTW"].each do |warehouse|
@@ -19,6 +24,11 @@ end
 ["JFK", "EWR", "ATL", "IAD", "MIA", "LAX"].each do |airport|
 	Airport.create! short_name: airport
 	puts airport + ' airport created!'
+end
+
+CSV.foreach("#{Rails.root}/public/codes2.csv") do |row|
+	Item_Code.create! code: row[0].to_s.strip, species: row[1].to_s.strip, subspecies: row[2].to_s.strip
+	puts row[0]
 end
 
 10.times do

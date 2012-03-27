@@ -8,13 +8,16 @@ class AttachmentsController < ApplicationController
 	def create
 		@attachment = Attachment.new
 		@attachment.purchaseorder_id = params[:purchaseorder_id]
+		@purchaseorder = Purchaseorder.find(params[:purchaseorder_id])
 		@attachment.main_file = params[:main_file]
 
 		if @attachment.save
 			if params["X-Requested-With"] == "IFrame"
 				if @attachment.main_file.format == :csv
 					@file = File.read(params[:main_file].tempfile)
-					@csv = CSV.parse(@file)
+					@csv = CSV.parse(@file) do |row|
+						@purchaseorder.items.create box_number: row[0], item_number: row[1], weight: row[2], code: row[3], cost: row[4], grade_notes: row[5], comments: row[6]
+					end
 					render :json => {:attachment => @attachment, :csv => @csv}
 				else
 					render :json => @attachment

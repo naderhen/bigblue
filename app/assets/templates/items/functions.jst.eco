@@ -52,6 +52,7 @@
 				<input id="subspecies" type="text" class="input-small" placeholder="Subspecies">
 				<label>Shipper Grade</label>
 				<input id="shipper_grade" type="text" class="input-small" placeholder="Shipper Grade">
+				<button type="submit">
 			</div>
 			<div class="span2">
 				<label>Box #</label>

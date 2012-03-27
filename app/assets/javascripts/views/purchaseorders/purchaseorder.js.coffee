@@ -11,6 +11,9 @@ class Bigblue.Views.Purchaseorder extends Backbone.View
 		@model.on('change', @render, this)
 
 	render: ->
+		if user.get('role') != "Admin"
+		  @model.get('shipper').name = "Unavailable"
+
 		$(@el).html(@template(purchaseorder: @model))
 		this
 

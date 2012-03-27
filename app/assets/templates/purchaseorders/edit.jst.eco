@@ -10,7 +10,7 @@
 			<label>Shipper</label>
 			<select id="shipper_id">
 				<% for shipper in @shippers_collection.models: %>
-		    		<option value="<%= shipper.get('_id') %>" selected="<%= shipper.get('_id') == @model.get('shipper_id') ? 'selected' : 'unselected' %>"><%= shipper.get('name') %></option>
+		    		<option value="<%= shipper.get('_id') %>"><%= shipper.get('name') %></option>
 		    	<% end %>
 		    </select>
 		    <label>Date</label>
@@ -21,9 +21,7 @@
 		    	<option>TDW</option>
 		    </select>
 		    <label>Origin</label>
-		    <select id="origin">
-		    	<option>Brazil</option>
-		    </select>
+		    <input id="origin" type="text" value="<%= @model.get('origin') %>">
 		</div>
 		<div class="span3">
 			<label>Airline</label>

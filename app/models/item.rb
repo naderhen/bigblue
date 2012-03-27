@@ -4,6 +4,11 @@ class Item
   field :box_number, :type => Integer
   field :item_number, :type => Integer
   field :weight, :type => Float
+  field :code, :type => String
+  field :cost, :type => Float
+  field :grade_notes, :type => String
+  field :comments, :type => String
+  field :description, :type => String
   field :species, :type => String
   field :subspecies, :type => String
   field :shipper_grade, :type => String
@@ -13,13 +18,20 @@ class Item
   field :freshness, :type => String
   field :texture, :type => String
   field :fat, :type => String
-  field :comments, :type => String
   field :cut, :type => String
   field :location, :type => String
   field :fresh, :type => Boolean
-  field :price, :type => Float
 
   belongs_to :purchaseorder
+
+  after_create :parse_code
+
+  def parse_code
+    item_code = Item_Code.where(code: code).first
+    self.species = item_code.species
+    self.subspecies = item_code.subspecies
+    save!
+  end
 
   def po_number
     self.purchaseorder.po_number

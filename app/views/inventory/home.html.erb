@@ -1,4 +1,6 @@
 <script>
+	var user = new Bigblue.Models.User;
+	user.set(<%= @user.to_json.html_safe %>);
 	var shippers = new Bigblue.Collections.Shippers;
 	shippers.reset(<%= @shippers.to_json.html_safe %>);
 	var warehouses = new Bigblue.Collections.Warehouses;

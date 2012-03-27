@@ -45,7 +45,6 @@ gem "guard-cucumber", ">= 0.6.1", :group => :development
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.4.3"
 gem "devise", ">= 2.0.0"
+gem "cancan"
+gem "switch_user"
 gem "rails-footnotes", ">= 3.7", :group => :development
-
-gem 'activeadmin'
-gem "meta_search",    '>= 1.1.0.pre'

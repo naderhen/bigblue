@@ -12,7 +12,7 @@ class Bigblue.Views.Item extends Backbone.View
 		@batch_collection = @.options.batch_collection
 
 	render: ->
-		Backbone.ModelBinding.bind(this)
+		console.log('come on')
 		purchaseorder = @.options.purchaseorder
 		$(@el).html(@template({item: @model, purchaseorder: purchaseorder}))
 		this
@@ -32,3 +32,4 @@ class Bigblue.Views.Item extends Backbone.View
 	loadFunctions: (event) ->
 		functions_view = new Bigblue.Views.ItemsFunctions(model: @model)
 		$('#right').html(functions_view.render().el).fadeIn()
+		Backbone.ModelBinding.bind(functions_view);

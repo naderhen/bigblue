@@ -20,10 +20,6 @@ class Purchaseorder
   has_many :notes
   has_many :attachments
 
-  def shipper_name
-    self.shipper.name
-  end
-
   def locale
     if self.warehouse
       return self.warehouse.short_name

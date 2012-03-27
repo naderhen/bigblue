@@ -7,6 +7,7 @@ class User
 
   ## Database authenticatable
   field :email,              :type => String, :null => false, :default => ""
+  field :role,               :type => String, :null => false, :default => "guest"
   field :encrypted_password, :type => String, :null => false, :default => ""
 
   ## Recoverable
@@ -40,8 +41,10 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
   field :name
-  validates_presence_of :name
+  validates_presence_of :name, :role
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :role, :password, :password_confirmation, :remember_me
+
+  has_many :permissions
 end
 

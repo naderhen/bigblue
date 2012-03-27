@@ -6,10 +6,9 @@ class Bigblue.Views.ItemsFunctions extends Backbone.View
 
 	render: ->
 		$(@el).html(@template({item: @model}))
-		Backbone.ModelBinding.bind(this)
 		this
 
 	save: (event) ->
-		event.preventDefault()
-		@model.save()
+		console.log @model
 		@model.trigger('change')
+		event.preventDefault()
