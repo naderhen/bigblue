@@ -79,5 +79,3 @@
 # - vendor/plugins/moonshine/lib/moonshine/manifest/rails/templates/moonshine.cnf.erb 
 # :mysql:
 #   :innodb_buffer_pool_size: 128M
-
-recipe :mongodb
