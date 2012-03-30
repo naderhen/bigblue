@@ -11,4 +11,5 @@
 <td>
 	<i class="icon-search"></i>
 	<i class="icon-ok icon-darkblue" style="display: none;"></i>
+	<i class="icon-comment icon-darkblue" style="display: none;"></i>
 </td>
