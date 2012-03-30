@@ -17,6 +17,12 @@ end
 
 module Bigblue
   class Application < Rails::Application
+  
+  # don't attempt to auto-require the moonshine manifests into the rails env
+  config.paths['app/manifests'] = 'app/manifests'
+  config.paths['app/manifests'].skip_eager_load!
+
+
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|

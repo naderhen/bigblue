@@ -11,3 +11,17 @@
 	}
 
 #batch-modal { width: 750px; }
+
+.highlight,
+.table-striped tbody tr:nth-child(odd).highlight td,
+.table-striped tbody tr:nth-child(odd).highlight th {
+	color: #FFF;
+	background-color: #08C !important;
+}
+
+.changed,
+.table-striped tbody tr:nth-child(odd).changed td,
+.table-striped tbody tr:nth-child(odd).changed th {
+	color: #000;
+	background-color: #C09853 !important;
+}

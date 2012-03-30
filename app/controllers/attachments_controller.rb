@@ -1,11 +1,16 @@
 require 'csv'
 class AttachmentsController < ApplicationController
 
+	def handle_unverified_request
+
+	end
+
 	def index
 		@attachments = Attachment.all
 	end
 
 	def create
+		binding.pry
 		@attachment = Attachment.new
 		@attachment.purchaseorder_id = params[:purchaseorder_id]
 		@purchaseorder = Purchaseorder.find(params[:purchaseorder_id])

@@ -11,12 +11,12 @@ class Item
   field :description, :type => String
   field :species, :type => String
   field :subspecies, :type => String
+
   field :shipper_grade, :type => String
   field :core_grade, :type => String
+  field :freshness_grade, :type => String
+  field :texture_grade, :type => String
   field :tail_grade, :type => String
-  field :bloodline_grade, :type => String
-  field :freshness, :type => String
-  field :texture, :type => String
   field :fat, :type => String
   field :cut, :type => String
   field :location, :type => String

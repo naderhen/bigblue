@@ -47,12 +47,12 @@ end
 	item_nums = (1...6).to_a
 	weights = (60...200).to_a
 	grades = ['1+', '1', '2+', '2H', '2', '3', '4']
-	species = ['YF', 'BE', 'MAHI', 'SWORD']
+
+	item_code = Item_Code.all.shuffle[0]
 
 	(1...box_nums[rand(box_nums.size)]).each do |num, index|
 		(1...item_nums[rand(item_nums.size)]).each do |num2, index2|
-			sp = species[rand(species.size)]
-			po.items.create! box_number: num, item_number: num2, weight: weights[rand(weights.size)], species: sp, grade: grades[rand(grades.size)]
+			po.items.create! box_number: num, item_number: num2, code: item_code.code, weight: weights[rand(weights.size)], grade: grades[rand(grades.size)]
 		end 
 	end
 

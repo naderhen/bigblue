@@ -26,7 +26,6 @@ class Bigblue.Views.Purchaseorder extends Backbone.View
 		object.removeClass('icon-list').addClass('icon-refresh')
 		po.fetch({
 			success: ->
-				items_collection = self.options.items_collection
 				new_items = po.get('items')
 				items_collection.add(new_items)
 				items_view = new Bigblue.Views.ItemsIndex({purchaseorder: po, collection: items_collection})
@@ -40,8 +39,6 @@ class Bigblue.Views.Purchaseorder extends Backbone.View
 		object = $(event.currentTarget)
 		po = new Bigblue.Models.Purchaseorder(@model)
 		po_number = po.get('po_number')
-
-		items_collection = @.options.items_collection
 
 		to_be_removed = items_collection.filter((item) ->
 			item.get('po_number') == po_number

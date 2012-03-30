@@ -7,8 +7,6 @@ class Bigblue.Views.PurchaseordersIndex extends Backbone.View
 	
 	initialize: ->
 		@collection.on('reset', @render, this)
-		@items_collection = @.options.items_collection
-		@items_view = @.options.items_view
 
 	render: ->
 		$(@el).html(@template())
@@ -24,11 +22,11 @@ class Bigblue.Views.PurchaseordersIndex extends Backbone.View
 		this
 
 	appendPurchaseorder: (purchaseorder) =>
-		view = new Bigblue.Views.Purchaseorder({model: purchaseorder, items_collection: @items_collection, items_view: @items_view})
+		view = new Bigblue.Views.Purchaseorder({model: purchaseorder})
 		@$('table tbody').append(view.render().el)
 
 	createPurchaseorder: (event) ->
 		@purchaseorder = new Bigblue.Models.Purchaseorder
-		create_view = new Bigblue.Views.PurchaseordersCreate(collection: @collection, model: @purchaseorder)
+		create_view = new Bigblue.Views.PurchaseordersCreate(model: @purchaseorder)
 		create_view.render()
 		event.preventDefault()

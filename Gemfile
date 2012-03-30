@@ -24,6 +24,8 @@ gem "faker"
 gem "backbone-on-rails"
 gem "rabl"
 gem "pry"
+gem "capistrano"
+gem "unicorn"
   
 case HOST_OS
   when /darwin/i
@@ -48,3 +50,4 @@ gem "devise", ">= 2.0.0"
 gem "cancan"
 gem "switch_user"
 gem "rails-footnotes", ">= 3.7", :group => :development
+gem "faye"

@@ -1,0 +1,10 @@
+development: &global_settings
+  database: bigblue-development
+  host: 127.0.0.1
+  port: 27017
+
+production:
+  database: bigblue
+  username: rails
+  password: krock923
+  <<: *global_settings

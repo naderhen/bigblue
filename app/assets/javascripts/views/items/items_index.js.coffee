@@ -12,6 +12,12 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 		@batch_collection = new Bigblue.Collections.Items()
 		@batch_collection.on('add remove reset', @updateBatch, this)
 
+		collection = @collection
+		faye.subscribe '/items/update', (model) ->
+			updated_model = collection.get(model.id)
+			if typeof(updated_model != 'undefined')
+				updated_model.set(model)
+
 	render: ->
 		purchaseorder = @.options.purchaseorder
 		$(@el).html(@template(purchaseorder: purchaseorder, batch_collection: @batch_collection))
@@ -22,7 +28,8 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 			"oLanguage": {
 				"sLengthMenu": "_MENU_ records per page"
 			},
-			"iDisplayLength": 35
+			"iDisplayLength": 35,
+			"aaSorting": [[ 2, "asc"],[3, "asc"]]
 		});
 
 		@$('.filter-widget').on 'blur', ->
@@ -40,7 +47,7 @@ class Bigblue.Views.ItemsIndex extends Backbone.View
 
 	appendItem: (item) =>
 		purchaseorder = @.options.purchaseorder
-		view = new Bigblue.Views.Item({model: item, purchaseorder: purchaseorder, batch_collection: @batch_collection})
+		view = new Bigblue.Views.Item({model: item, collection: @collection, purchaseorder: purchaseorder, batch_collection: @batch_collection})
 		@$('table tbody').append(view.render().el)
 
 	updateBatch: (event) ->

@@ -29,6 +29,9 @@
 					<th>Weight</th>
 					<th>Species</th>
 					<th>Grade</th>
+					<th>Freshness</th>
+					<th>Texture</th>
+					<th>Tail</th>
 					<th>Actions</th>
 				</tr>
 			</thead>

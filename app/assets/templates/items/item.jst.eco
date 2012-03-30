@@ -4,7 +4,11 @@
 <td><%= @item.get('item_number') %></td>
 <td data-bind="text weight"><%= @item.get('weight') %></td>
 <td><%= @item.get('species') %></td>
-<td><%= @item.get('grade') %></td>
+<td><%= @item.get('core_grade') %></td>
+<td><%= @item.get('freshness_grade') %></td>
+<td><%= @item.get('texture_grade') %></td>
+<td><%= @item.get('tail_grade') %></td>
 <td>
 	<i class="icon-search"></i>
+	<i class="icon-ok icon-darkblue" style="display: none;"></i>
 </td>

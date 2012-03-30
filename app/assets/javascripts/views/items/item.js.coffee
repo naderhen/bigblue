@@ -8,14 +8,22 @@ class Bigblue.Views.Item extends Backbone.View
 		'click .icon-search': 'loadFunctions'
 
 	initialize: ->
-		@.on('change', @render, this)
+		@model.on('change', @render, this)
+		@model.on('sync', @savedItem, this)
 		@batch_collection = @.options.batch_collection
 
 	render: ->
-		console.log('come on')
 		purchaseorder = @.options.purchaseorder
 		$(@el).html(@template({item: @model, purchaseorder: purchaseorder}))
+		if @model.hasChanged()
+		  $(@el).addClass('changed')
+		Backbone.ModelBinding.bind(this)
 		this
+
+	savedItem: ->
+		$(@el).removeClass('changed highlight')
+		$(@el).find('.icon-ok').fadeIn();
+		faye.publish('/items/update', @model)
 
 	addToSelection: (event) ->
 		self = @
@@ -30,6 +38,12 @@ class Bigblue.Views.Item extends Backbone.View
 		@batch_collection.remove(@model)
 
 	loadFunctions: (event) ->
+		$('#inventory-table_wrapper .icon-search').removeClass('icon-darkblue')
+		$(event.currentTarget).addClass('icon-darkblue')
 		functions_view = new Bigblue.Views.ItemsFunctions(model: @model)
 		$('#right').html(functions_view.render().el).fadeIn()
-		Backbone.ModelBinding.bind(functions_view);
+		Backbone.ModelBinding.bind(this)
+
+		row = $(@el)
+		row.siblings().removeClass('highlight')
+		row.addClass('highlight')

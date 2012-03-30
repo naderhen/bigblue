@@ -1,10 +1,12 @@
 <script>
+	var faye = new Faye.Client('http://localhost:9292/faye');
 	var user = new Bigblue.Models.User;
 	user.set(<%= @user.to_json.html_safe %>);
 	var shippers = new Bigblue.Collections.Shippers;
 	shippers.reset(<%= @shippers.to_json.html_safe %>);
 	var warehouses = new Bigblue.Collections.Warehouses;
 	warehouses.reset(<%= @warehouses.to_json.html_safe %>);
+	var items_collection = new Bigblue.Collections.Items;
 </script>
 
 <div class="page-header">

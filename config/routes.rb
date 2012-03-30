@@ -8,7 +8,7 @@ Bigblue::Application.routes.draw do
   match 'upload' => 'attachments#new'
   match 'profile' => 'users#profile'
 
-  root :to => "home#index"
+  root :to => "inventory#home"
 
   devise_for :users
   resources :users, :only => :show
