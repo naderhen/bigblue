@@ -28,7 +28,7 @@
 :deploy_to: /srv/bigblue
 
 # Primary domain application will be accessed as 
-:domain: yourapp.com
+#:domain: yourapp.com
 
 # Domain aliases for application. One common use of this is for asset hosts.
 #:domain_aliases:
@@ -67,8 +67,6 @@
 #    - awesome
 #    - libawesome-dev
 
-recipe :mongodb
-
 # Passenger-specific options. Refer to the following templates for details
 # about what values are used:
 # - vendor/plugins/moonshine/lib/moonshine/manifest/rails/templates/passenger.conf.erb 
@@ -79,5 +77,7 @@ recipe :mongodb
 # MySQL-specific options. Refer to the following templates for details about
 # what values are used:
 # - vendor/plugins/moonshine/lib/moonshine/manifest/rails/templates/moonshine.cnf.erb 
-:mysql:
-  :innodb_buffer_pool_size: 128M
+# :mysql:
+#   :innodb_buffer_pool_size: 128M
+
+recipe :mongodb
