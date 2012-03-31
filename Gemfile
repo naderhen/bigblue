@@ -24,9 +24,9 @@ gem "faker"
 gem "backbone-on-rails"
 gem "rabl"
 gem "pry"
-gem "capistrano"
-gem "unicorn"
-  
+gem "awesome_print"
+gem "mongoid-history"
+
 case HOST_OS
   when /darwin/i
     gem 'rb-fsevent', :group => :development

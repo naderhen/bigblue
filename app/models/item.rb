@@ -1,5 +1,7 @@
 class Item
   include Mongoid::Document
+  include Mongoid::History::Trackable
+
   field :purchaseorder_id, :type => Integer
   field :box_number, :type => Integer
   field :item_number, :type => Integer
@@ -25,6 +27,8 @@ class Item
   belongs_to :purchaseorder
 
   after_create :parse_code
+
+  track_history :on => :all
 
   def parse_code
     item_code = Item_Code.where(code: code).first

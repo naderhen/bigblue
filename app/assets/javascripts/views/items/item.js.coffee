@@ -24,7 +24,7 @@ class Bigblue.Views.Item extends Backbone.View
 	fayeUpdate: (data) ->
 		@model.set(data.model)
 		comment = $(@el).find('.icon-comment')
-		$(@el).addClass('fayeUpdated')
+		$(@el).addClass('fayeUpdated').removeClass('changed')
 		comment.attr({
 			rel: "tooltip"
 			title: "Edited by: " + data.user.name
